@@ -8,7 +8,7 @@ This repo contains my notes from GeeksForGeeks course on learning data structure
 
 ### [Python Programming Foundation](./python-programming-foundation.md)
 
-- [ ] [Python Basics](./python-programming-foundation.md/#python-basics)
+- [x] [Python Basics](./python-programming-foundation.md/#python-basics)
 - [ ] [Variables and Data Types](./python-programming-foundation.md/#variable-and-data-types)
 - [ ] [Input and Output in python](./python-programming-foundation.md/#input-and-output-in-python)
 - [ ] [Operators](./python-programming-foundation.md/#operators)
