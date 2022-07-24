@@ -238,6 +238,28 @@
 
 ## Input and Output in Python
 
+## print()
+
+- `end` and `sep` options with print function
+
+  - By default end is set to new line and sep is set to space unless specifically mentioned by the user.
+
+  ```python
+  print('GEEKS', end=' ')
+  print('FOR GEEKS')
+  print('07','24','2022',sep='/')
+  print(10,20,30,sep='-',end=' ')
+  print(40,50)
+  ```
+
+  Output:
+
+  ```basic
+  GEEKS FOR GEEKS
+  07/24/2022
+  10-20-30 40 50
+  ```
+
 ## Operators
 
 ## Flow Control
