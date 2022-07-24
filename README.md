@@ -8,15 +8,15 @@ This repo contains my notes from GeeksForGeeks course on learning data structure
 
 ### [Python Programming Foundation](./python-programming-foundation.md)
 
-- [x] [Python Basics](./python-programming-foundation.md/#python-basics)
-- [x] [Variables and Data Types](./python-programming-foundation.md/#variables-and-data-types)
-- [ ] [Input and Output in python](./python-programming-foundation.md/#input-and-output-in-python)
-- [ ] [Operators](./python-programming-foundation.md/#operators)
-- [ ] [Flow Control](./python-programming-foundation.md/#flow-control)
-- [ ] [Loops](./python-programming-foundation.md/#loops)
-- [ ] [Functions](./python-programming-foundation.md/#functions)
-- [ ] [String](./python-programming-foundation.md/#string)
-- [ ] [List](./python-programming-foundation.md/#list)
+- [x] [Python Basics](./python-programming-foundation.md#python-basics)
+- [x] [Variables and Data Types](./python-programming-foundation.md#variables-and-data-types)
+- [ ] [Input and Output in python](./python-programming-foundation.md#input-and-output-in-python)
+- [ ] [Operators](./python-programming-foundation.md#operators)
+- [ ] [Flow Control](./python-programming-foundation.md#flow-control)
+- [ ] [Loops](./python-programming-foundation.md#loops)
+- [ ] [Functions](./python-programming-foundation.md#functions)
+- [ ] [String](./python-programming-foundation.md#string)
+- [ ] [List](./python-programming-foundation.md#list)
 
 ### Data Structures using python
 
