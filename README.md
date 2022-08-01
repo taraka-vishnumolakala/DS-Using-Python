@@ -11,7 +11,7 @@ This repo contains my notes from GeeksForGeeks course on learning data structure
 - [x] [Python Basics](./python-programming-foundation.md#python-basics)
 - [x] [Variables and Data Types](./python-programming-foundation.md#variables-and-data-types)
 - [x] [Input and Output in python](./python-programming-foundation.md#input-and-output-in-python)
-- [ ] [Operators](./python-programming-foundation.md#operators)
+- [x] [Operators](./python-programming-foundation.md#operators)
 - [ ] [Flow Control](./python-programming-foundation.md#flow-control)
 - [ ] [Loops](./python-programming-foundation.md#loops)
 - [ ] [Functions](./python-programming-foundation.md#functions)

@@ -238,7 +238,7 @@
 
 ## Input and Output in Python
 
-## print()
+### print()
 
 - `end` and `sep` options with print function
 
@@ -261,6 +261,127 @@
   ```
 
 ## Operators
+
+### Arithmetic Operators
+
+- What is the difference between division **(/)** and floor **(//)** ?
+
+  - Division returns a float with numbers after the decimal point where as floor rounds off the number and returns an integer.
+
+    ```python
+    print(9/4) # 2.25
+    print(9//4) # 2
+    ```
+
+- How to return power of something ?
+
+  ```python
+  print(9**4) # 9 power of 4 --> 6561
+  ```
+
+- Order of precedence:
+
+  ```basic
+  ** --> power has highest precendence
+  * / // --> multiplication and division has second highest precendence 
+  + - --> Least precedence
+  ```
+
+- **Floating point numbers require higher number of bits to store the numbers and also, the division operator is not reliable when dealing with large numbers. It's ideal to use floor operator when dividing large numbers**
+
+### Logical Operators
+
+- `and`, `or`, `not`
+
+- **Ternary operation in python**
+
+  ```python
+  s1 = ""
+  s2 = s1 or "DefaultValue"
+  print(s2) # DefaultValue
+  ```
+
+  - Line two in the above code says if s1 is empty then assign "DefaultValue" to string s2 if not assign s1.
+  - We can also do the same with list, tuple, dictionary, set, etc.
+
+- Logical operators also consider any non-zero values as true and all zero values are treated as false.
+
+  ```python
+  x = 10
+  print(x or 20) # 20 --> x is evaluated as true. Since 20 is the last evaluated value our output will be 20
+  y = 0
+  print(y or 30) # 30 --> y is considered false and 30 is our last evaluated value.
+  z = 40
+  print(z and 50) # 50 --> z is considered true and 50 is our last evaluated value.
+  ```
+
+### Identity Comparison
+
+- `is` and `isnot`
+
+- **is** compared the id values are returns true only if they match. **id** is the memory location where the object is stored.
+
+- **is not** returns a negation of **is**.
+
+  ```python
+  x = 10
+  y = x
+  print(x is y) # True
+  print(x is not y) # false
+  ```
+
+  Other examples:
+
+  ```python
+  x1 = 10
+  x2 = 10
+  z1 = "GeeksForGeeks"
+  z2 = "GeeksForGeeks"
+  print(x1 is x2) # True
+  print(z1 is z2) # True
+  ```
+
+  - Python stores values to the same memory location if they have the same value. **This is not true for lists, sets, tuples, etc.**
+
+### Membership Test
+
+- `in` and `not in`
+
+  ```python
+  s = "GeeksForGeeks"
+  print("G" in s) # True --> in checks for substring in a string
+  
+  d = {10:"abc", 20:"efg"}
+  print(10 in d) # True
+  print(15 in d) # False
+  
+  l = [10,20,30,15]
+  print(30 in l) # True
+  print([20,30] in l) # False --> only returns true if a value is member of a list but not for sublists
+  ```
+
+- `not in` returns negation of `in`
+
+### Arithmetic Progression nth Term
+
+- A series that has a common difference between the elements in called arithmetic progression.
+
+- Mathematical formula to calculate arithmetic progression for nth term. **a+(n-1)d** where **a = first term** and **d = common difference**
+
+- Example series:
+
+  ```basic
+  {5000, 7000, 9000, 11000, ....}
+  ```
+
+### Geometric Progression nth Term
+
+- A series that has common ration between terms is called geometric progression.
+- Mathematical formula **ar\**(n-1) ** where **a = first term** and **r = common ratio**
+
+### Sum of Natural Numbers
+
+- Mathematical formula: **n*(n+1)/2**
 
 ## Flow Control
 
