@@ -385,7 +385,61 @@
 
 ## Flow Control
 
+- if, else and elif condition syntax in python
+
+  ```python
+  if condition:
+      # statements to execute
+  elif condition:
+      # statements to execute
+  else:
+      # statements to execute
+  ```
+
+- Nothing more in this section. Talks about couple of problems and solving them using if, else conditions.
+
 ## Loops
+
+### range()
+
+- generates a range object with numbers starting from zero to n-1 assuming n is a positive number.
+
+  ```python
+  r = range(5)
+  print(r) # range(0,5)
+  l = list(r)
+  print(l) # [0,1,2,3,4]
+  print(type(r)) # <class,'range'>
+  ```
+
+- range function with two parameters
+
+  ```python
+  print(list(range(10,20))) # [10,11,12,13,14,15,16,17,18,19]
+  print(list(range(-2,2))) # [-2,-1,0,1]
+  ```
+
+- range function with three parameters
+
+  ```python
+  print(list(range(10,20,2))) # [10,12,14,16,18]
+  print(list(range(10,20,3))) # [10,13,16,19]
+  print(list(range(20,10,-2))) # [20,18,16,14,12]
+  ```
+
+### Continue
+
+-  continues to the next iteration without executing the next statements after the condition.
+
+  ```python
+  l = [10,16,17,18,19,15]
+  for x in l:
+      if x%5 == 0:
+          continue
+      print(x)
+  ```
+
+- We can always use other conditions without using continue. Continue just makes the code more elegant and readable.
 
 ## Functions
 
