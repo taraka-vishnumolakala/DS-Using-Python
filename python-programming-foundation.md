@@ -443,6 +443,137 @@
 
 ## Functions
 
+- syntax
+
+  ```python
+  def funcName():
+  ```
+
+- functions with parameters
+
+  ```python
+  def printDate(date, month, year):
+      print(date, month, year, sep="-")
+  ```
+
+- Default arguments
+
+  ```python
+  def printDetails(id, name="NA", price="NA"):
+      print(f"Id is {id}")
+      print(f"Id is {name}")
+      print(f"Id is {price}")
+      
+  printDetails(101,"abc",100)
+  printDetails() # throws an error since id is not a default argument
+  ```
+
+  - `id` is not a default argument. So, we need to pass a value for id when calling `printDetails` function.
+
+- Default and keyword arguments
+
+  ```python
+  def printDetails(id, name="NA", price="NA"):
+      print(f"Id is {id}")
+      print(f"Id is {name}")
+      print(f"Id is {price}")
+      
+  printDetails(name="abc", id=101) # passing keyword before the argument
+  ```
+
+- Variable length arguments **(one star prefixed will be tuple)**
+
+  ```python
+  def sum(*elements):
+      result = 0
+      for element in elements:
+          result = result+element
+      return result
+  
+  print(sum(10,20)) # 30
+  print(sum()) # 0
+  ```
+
+  - An argument prefixed with star is considered as a tuple and variable length arguments can be passed to it. 
+
+- Keyword variable length arguments **(two stars prefixed will be dictionary)**
+
+  ```python
+  def printDetails(**elements):
+      for d,v in elements.items():
+          print(f"{d} is {v}")
+          
+  printDetails(id=101, name="abc", price=100)
+  ```
+
+### Parameter passing
+
+- Consider the two functions below and understand the differences in output
+
+  - Example 1
+
+  ```python
+  def assignVariableToNewValue(x):
+      x = 15
+  x = 10
+  assignVariableToNewValue(x)
+  print(x) # 10
+  ```
+
+  - Example 2
+
+  ```python
+  def appendToExistingObject(l):
+      l.append(15)
+  l = [10,20,30]
+  appendToExistingObject(l)
+  print(l) # [10,20,30,15]
+  ```
+
+  - In example one when value `x` is passed to function it still holds the same reference to that object. However, when the value of x is assigned to a new value the reference is modified and the local variable inside the function now refers to a new memory location which is 15
+  - In example two we are not assigning a new value to our list but instead we are just appending a new value to our existing reference to the object. 
+  - Try printing the id's of each variable to understand the difference 
+
+### Returning multiple values
+
+```python
+def add_multiply(x,y):
+    sum = x+y
+    multiply = x*y
+    return sum,multiply # packed as a tuple 
+
+s,m=add_multiply(10,20) # unpacks the tuple and assigns the values based on the indexes/positions
+print(s) #30
+print(m) #200
+```
+
+### Global variables
+
+- Modifying global variables inside functions
+
+  ```python
+  def func():
+      global x 
+      x = 15 # references global variable x and modifies the value
+  x = 10
+  func()
+  print(x) # 15
+  ```
+
+- Accessing both global and local variables with same name inside the function
+
+  ```python
+  def fun():
+      x = 10
+      globals()['x'] = 20
+      print(x) # 10
+  x = 15
+  fun()
+  print(x) # 20
+  ```
+
+  
+
 ## String
 
 ## List
