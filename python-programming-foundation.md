@@ -769,3 +769,94 @@ print(str1 != str2) # True
   - Python internally converts the strings to an array/list of characters and then gets the unicode value of each character and compares them.
 
 ## List
+
+### Slicing
+
+```python
+list1 = [10,20,30,40,50]
+print(list1[0:5:2]) # [10,30,50]
+# Expression list1[0:5:2] is interpreted as list[start:stop:step] which means it returns a new list which begins at start index and continues till stop-1 index by adding start+step every time. 
+print(list1[:4]) # [10,20,30,40] --> start is set to 0 by default
+print(list1[2:]) # [30,40,50] --> stop is set to len by default
+print(list1[4:1:-1]) # [50,40,30] --> getting items in reverse order
+```
+
+- Consider the below example and understand the difference
+
+  ```python
+  l1 = [10,20,30]
+  l2 = l1[:]
+  t1 = (10,20,30)
+  t2 = t1[:]
+  s1 = "Geeks"
+  s2 = s1[:]
+  print(l1 is l2) # False
+  print(t1 is t2) # True
+  print(s1 is s2) # True
+  ```
+
+  - Since tuple's and string's are immutable, python creates a same reference to both the objects and hence it returns true.  On the other hand list is mutable and python creates two objects for list. 
+
+### Comprehensions in python
+
+- Gives us ability to write a shortcut syntax to create a resulting iterable. Consider the below example where we need to create a list of even numbers till 10.
+
+  ```python
+  l1 = []
+  for x in range(11):
+      if x%2 == 0:
+          l1.append(x)
+  # we can do the same with a one liner as shown below
+  l1 = [x for x in range(11) if x % 2 == 0]
+  ```
+
+- Other examples
+
+  ```python
+  l1 = ["geeks","for","geeks","gfg","ide"]
+  print([x.upper for x in l1 if x.startswith("g")]) # ["GEEKS","GEEKS","GFG"]
+  ```
+
+- Similarly, we can create a set using curly braces
+
+  ```python
+  l = [10,20,30,40,50,10,20,30,40,50]
+  even = {e for e in l if e%2 == 0} # {10,20,30,40,50}
+  odd = {e for e in l if e%2 != 0} # {}
+  ```
+
+- Compressions using dictionary
+
+  ```python
+  l1 = [1,3,4,2,5]
+  d1 = {x:x**3 for x in l}
+  print(d1) # {1:1, 3:7, 4:64, 2:8, 5:125}
+  
+  d2 = {x:f"ID{x}" for x in range(5)}
+  print(d2) # {0:'ID0', 1:'ID1', 2:'ID2', 3:'ID3', 4:'ID4'}
+  
+  l2 = [101,102,103]
+  l3 = ["gfg","ide","courses"]
+  d3 = {l2[i]:l3[i] for i in range(len(l2))}
+  print(d3) # {101:'gfg', 102:'ide', 103:'courses'} 
+  ```
+
+- A better way to combine two lists and create a dictionary
+
+  ```python
+  l2 = [101,102,103]
+  l3 = ["gfg","ide","courses"]
+  #-----d3 = {l2[i]:l3[i] for i in range(len(l2))}----
+  d3 = dict(zip(l2,l3))
+  print(d3) # {101:'gfg', 102:'ide', 103:'courses'} 
+  ```
+
+- Reversing key value pairs in dictionary using comprehensions
+
+  ```python
+  d1 = {101:'gfg', 102:'ide', 103:'courses'}
+  d2 = {v:k for (k,v) in d1.items()}
+  print(d2) # {'gfg':101, 'ide':102, 'courses':103}
+  ```
+
+  

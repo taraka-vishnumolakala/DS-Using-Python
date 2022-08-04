@@ -16,7 +16,7 @@ This repo contains my notes from GeeksForGeeks course on learning data structure
 - [x] [Loops](./python-programming-foundation.md#loops)
 - [x] [Functions](./python-programming-foundation.md#functions)
 - [x] [String](./python-programming-foundation.md#string)
-- [ ] [List](./python-programming-foundation.md#list)
+- [x] [List](./python-programming-foundation.md#list)
 
 ### Data Structures using python
 
