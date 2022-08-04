@@ -572,8 +572,200 @@ print(m) #200
   print(x) # 20
   ```
 
-  
 
 ## String
+
+- Values of characters from **'A'** to **'Z'** start from **65** to **90**. 
+
+- Values of characters from **'a'** to **'z'** start from **97** to **122**.
+
+  - Example:
+
+    ```python
+    print(ord("a")) # 97
+    print(ord("A")) # 65
+    print(chr(97)) # a
+    print(chr(65)) # A
+    ```
+
+- String indexes in python
+
+  |  G   |  E   |  E   |  K   |
+  | :--: | :--: | :--: | :--: |
+  |  0   |  1   |  2   |  3   |
+  |  -4  |  -3  |  -2  |  -1  |
+
+- Triple quoted strings to create multi line strings
+
+  ```python
+  str = """Hi,
+  Use triple quotes to create multi line strings.
+  Can also use triple single quotes instead of double."""
+  print(str) # prints the string retaining the new line characters.
+  ```
+
+### Escape sequences and raw strings
+
+- Escape sequence
+
+  ```python
+  str = 'Geek\'s for Geek\'s'
+  print(str) # Geek's for Geek's
+  ```
+
+- Escaping escape sequence
+
+  ```python
+  str1 = "Backslash at the end \\"
+  str2 = "\\n"
+  print(str1) # Backslash at the end \
+  print(str2) # \n
+  ```
+
+- Raw strings
+
+  ```python
+  str1 = "C:\files\new.py"
+  str2 = r"C:\files\new.py"
+  print(str1) # C:\files and prints ew.py on a new line
+  print(str2) # adding r ignores escape sequences in the string and prints C:\files\new.py
+  ```
+
+### Formatted strings
+
+- python has three ways to format strings
+
+  - Old school C language style
+
+    ```python
+    name = "John"
+    course = "Python Course"
+    welcome_str = "Welcome %s to the %s."%(name,course)
+    print(welcome_str) # Welcome John to the Python Course
+    ```
+
+  - Using format()
+
+    ```python
+    name = "John"
+    course = "Python Course"
+    welcome_str = "Welcome {0} to the {1}.".format(name,course)
+    print(welcome_str) # Welcome John to the Python Course
+    ```
+
+  - Using f-String - **Recommended**
+
+    ```python
+    name = "John"
+    course = "Python Course"
+    welcome_str = f"Welcome {name} to the {course}."
+    print(welcome_str) # Welcome John to the Python Course
+    ```
+
+  - Can also use the **+** operator
+
+    ```python
+    name = "John"
+    course = "Python Course"
+    welcome_str = "Welcome " + name + " to the " + course"
+    print(welcome_str) # Welcome John to the Python Course
+    ```
+
+- We can also use expressions and call methods using f-String
+
+  ```python
+  x = 10
+  y = 20
+  print(f"Sum of {x} and {y} is {x+y}")
+  print(f"Product of {x} and {y} is {x*y}")
+  ```
+
+  ```python
+  str1 = "ABC"
+  str2 = "abc"
+  print(f"Lower case of {str1} is {str1.lower()}")
+  print(f"Uppes case of {str2} is {str2.upper()}")
+  ```
+
+- Validate if a sub string of a string
+
+  ```python
+  str1 = "geeksforgeeks"
+  str2 = "geeks"
+  print(str2 in str1) # True
+  print(str2 not in str1) # False
+  ```
+
+- Finding index position of a substring
+
+  ```python
+  str1 = "geeksforgeeks"
+  str2 = "geeks"
+  print(s1.index(s2)) # 0 --> returns the index of first occurence of substring
+  print(s1.rindex(s2)) # 8 --> returns the index of last occurence of substring
+  print(s1.index(s2,0,13)) # 0 --> searches for the sub string from the start and end-1 index positions
+  ```
+
+- **Remember that both index() and rindex() methods return a value error if the substring is not found in the parent string.**
+
+- **startswith() and endswith()**
+
+  ```python
+  s = "GeeksforGeeks Python Course"
+  print(s.startswith("Geeks")) # True
+  print(s.endswith("Course")) # True
+  print(s.startswith("Geeks",1)) # False --> Since start index is 1 and the search string now becomes 'eeksforGeeks Python Course'
+  print(s.startswith("Geeks",8,len(s))) # True --> Start index is 8 which means search string now becomes 'Geeks Python Course'
+  ```
+
+- **split() and join()**
+
+  ```python
+  str1 = "geeks for geeks"
+  print(str1.split()) # ['geeks','for','geeks']
+  str2 = "geeks,for,geeks"
+  print(str2.split(",")) # ['geeks','for','geeks']
+  list1 = ["geeksforgeeks", "python", "course"]
+  print(" ".join(list1)) # geeksforgeeks python course
+  print(",".join(list1)) # geeksforgeeks,python,course
+  ```
+
+- **strip(), lstrip(), and rstrip()**
+
+  ```python
+  s = "---geeksforgeeks---"
+  print(s.strip("-")) # geeksforgeeks 
+  print(s.lstrip("-")) # geeksforgeeks---
+  print(s.rstrip("-")) # ---geeksforgeeks 
+  ```
+
+- **find()**
+
+  ```python
+  str1 = "geeks for geeks"
+  str2 = "geeks"
+  print(str1.find(str2)) # 0
+  print(str1.find("John")) # -1
+  print(str1.find(str2,1,len(str1))) # 10
+  ```
+
+  - How is a find() method different from index() method ?
+    - Both index() and rindex() throw a value error when a sub string is not found in the parent string. Where as find() method returns **-1** when a substring is not found.
+
+### String comparision
+
+```python
+str1 = "geeksforgeeks"
+str2 = "ide"
+print(str1 < str2) # True
+print(str1 <= str2) # True
+print(str1 > str2) # False
+print(str1 >= str2) # False
+print(str1 == str2) # False
+print(str1 != str2) # True
+```
+
+- How are the above comparisons working ?
+  - Python internally converts the strings to an array/list of characters and then gets the unicode value of each character and compares them.
 
 ## List
