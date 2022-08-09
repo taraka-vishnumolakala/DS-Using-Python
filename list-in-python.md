@@ -44,6 +44,11 @@
 
 **NOTE: So, based on how the dynamic sizing works time complexity of insertion increases every time the size of list has to be increased.**
 
+## slicing (list, tuple, and string)
+
+- slicing in python follows the syntax **list[start:stop:step]**
+- we can also use negative value for step but remember that start should be a higher index value and stop should be lower index value when using negative integer for step.
+
 ## Problems
 
 ### average of a list
@@ -93,7 +98,42 @@ def getSmallerElements(list, n):
 print(getSmallerElements([10,20,30,40,50,60,70,80]), 65)
 ```
 
-### slicing (list, tuple, and string)
+### largest element in a list
 
-- slicing in python follows the syntax **list[start:stop:step]**
-- we can also use negative value for step but remember that start should be a higher index value and stop should be lower index value when using negative integer for step.
+```python
+def getLargestNumber(list_1):
+    max = list_1[0]
+    for i in range(1, len(list_1)):
+        if(list_1[i] > max):
+            max = list_1[i]
+    return max
+
+print(getLargestNumber([10,5,20,8]))
+```
+
+### Second largest element in a list
+
+```python
+def getSecondLargest(list_1):
+    if len(list_1) <= 1:
+        return None
+    largest = list_1[0]
+    second_largest = None
+    for i in list_1[1:]:
+        if(i > largest):
+            second_largest = largest
+            largest = i
+        elif i != largest:
+            if second_largest == None or second_largest < i:
+                second_largest = i
+    return second_largest
+
+list_1 = [5,20,12,10,20,12,10]
+print(list_1)
+# [5, 20, 12, 10, 20, 12, 10]
+getSecondLargest(list_1)
+# 12
+```
+
+
+
