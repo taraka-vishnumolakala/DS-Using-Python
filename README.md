@@ -47,4 +47,4 @@ This repo contains my notes from GeeksForGeeks course on learning data structure
 [Module 4](./module-4.md)
 
 - [ ] Heap
-- [ ] Grap
+- [ ] Graph
