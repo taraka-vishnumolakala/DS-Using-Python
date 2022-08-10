@@ -22,6 +22,7 @@
   sum(list)
   list.reverse()
   list.sort()
+  sorted_list = sorted(list)
   ```
 
 - **Advantages** of list:
@@ -51,14 +52,14 @@
 
 ## Problems
 
-### average of a list
+#### average of a list
 
 ```python
 def average_list(list):
     return sum(list)/len(list)
 ```
 
-### separate even and odd
+#### separate even and odd
 
 ```python
 def evenAndOdd(list):
@@ -76,7 +77,7 @@ print(e)
 print(o)
 ```
 
-### get smaller elements
+#### get smaller elements
 
 ```python
 def getSmallerElements(list, n):
@@ -98,7 +99,7 @@ def getSmallerElements(list, n):
 print(getSmallerElements([10,20,30,40,50,60,70,80]), 65)
 ```
 
-### largest element in a list
+#### largest element in a list
 
 ```python
 def getLargestNumber(list_1):
@@ -111,7 +112,7 @@ def getLargestNumber(list_1):
 print(getLargestNumber([10,5,20,8]))
 ```
 
-### Second largest element in a list
+#### Second largest element in a list
 
 ```python
 def getSecondLargest(list_1):
@@ -135,5 +136,122 @@ getSecondLargest(list_1)
 # 12
 ```
 
+#### check if a list is sorted
 
+```python
+def isSorted(list_1):
+    if len(list_1) == 0:
+        return None
+    else:
+        start = 0
+        end = start + 1
+        for i in range(0, len(list_1)-1):
+            if(list_1[start] > list_1[end]):
+                return False
+            else:
+                start+=1
+                end+=1
+    return True
+```
+
+#### find the only odd
+
+```python
+def getOddRepetition(list_1):
+    if len(list_1) == 0:
+        return None
+    else:
+        current = list_1[0]
+        repeated = 1
+        for i in list_1[1:]:
+            if repeated%2 != 0 and current != i:
+                return current
+            elif current == i:
+                repeated+=1
+            else:
+                repeated = 1
+                current = i
+                
+list_2 = [10,30,30,10,30,30,20]
+sorted_list = sorted(list_2)
+sorted_list
+# [10, 10, 20, 30, 30, 30, 30]
+getOddRepetition(sorted_list)
+# 20
+```
+
+A much simpler solution:
+
+```python
+def getOddRepetition(list_1):
+    for i in list_1:
+        if list_1.count(i)%2 != 0:
+            return i
+
+list_2 = [10,30,30,10,30,30,20]
+sorted_list = sorted(list_2)
+sorted_list
+# [10, 10, 20, 30, 30, 30, 30]   
+getOddRepetition(sorted_list)
+# 20
+getOddRepetition(list_2)
+# 20
+```
+
+#### reverse a list in python
+
+```python
+def reverseList(list_1):
+    if len(list_1) == 0:
+        return None
+    else:
+        end = len(list_1)-1
+        start = 0
+        while start < end:
+            list_1[start], list_1[end] = list_1[end], list_1[start] 
+            start += 1
+            end -= 1
+    return list_1
+
+list_1 = [10, 20, 'geeks', 30, 'for', 40, 'geeks']
+getReversedList(list_1)
+# ['geeks', 40, 'for', 30, 'geeks', 20, 10]
+```
+
+Alternative methods:
+
+```python
+list_1 = [10, 20, 'geeks', 30, 'for', 40, 'geeks']
+list_2 = list(reversed(list_1))
+list_3 = list_1[::-1]
+list_1.reverse()
+```
+
+#### left rotate a list by one
+
+```python
+def rotate_list(list_1):
+    if len(list_1) == 0:
+        return None
+    else:
+        start_element=list_1[0]
+        for i in range(0,len(list_1)-1):
+            list_1[i] = list_1[i+1]
+        list_1[len(list_1)-1] = start_element
+    return list_1
+
+rotate_list([1,2,3,4,5,6])
+# [2, 3, 4, 5, 6, 1]
+```
+
+Alternative methods:
+
+```python
+list_1 = [1,2,3,4,5]
+list_1[1:] + list_1[0:1]
+# [2, 3, 4, 5, 1]
+list_1.append(list_1.pop(0))
+list_1
+# [2, 3, 4, 5, 1]
+```
 
