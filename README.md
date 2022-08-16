@@ -23,7 +23,7 @@ This repo contains my notes from GeeksForGeeks course on learning data structure
 [Module 1](./module-1.md)
 
 - [ ] Analysis of Algorithms
-- [ ] List in python
+- [x] List in python
 - [ ] String
 - [ ] Hashing
 - [ ] Recursion
