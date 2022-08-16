@@ -255,3 +255,102 @@ list_1
 # [2, 3, 4, 5, 1]
 ```
 
+#### left rotate a list by d places
+
+- A solution that works in **O(n)** would be
+  - reverse elements from 0 to d-1
+  - reverse elements from d to n-1
+  - reverse the whole list 0 to n-1
+
+```python
+l = [1,2,3,4,5]
+d = 3
+def reverse(l, start, end):
+    while start<end:
+        l[start],l[end] = l[end], l[start]
+        start += 1
+        end -= 1       
+def leftRotate(l, d):
+    n = len(l)
+    reverse(l, 0, d-1)
+    reverse(l, d, n-1)
+    reverse(l, 0, n-1)
+
+leftRotate(l,d)
+l
+# [4, 5, 1, 2, 3]
+```
+
+Alternative methods:
+
+```python
+list_1 = [1,2,3,4,5]
+list_1[r:] + list_1[:r]
+# [3, 4, 5, 1, 2]
+```
+
+```python
+def leftrotate(list_1,d):
+    for i in range(0,d):
+        list_1.appent(list_1.pop(0))
+```
+
+#### sliding window technique
+
+- Find the maximum sum of K consecutive elements
+
+```python
+def maxSubArray(l, k):
+    start, end, maxSum, currentMax = 0, 0, 0, 0
+    while end <= len(l)-1:    
+        if end-start <= k-1:
+            currentMax += l[end]
+            end += 1
+        else:
+            print(currentMax, sep='/', end=' ')
+            currentMax -= l[start]
+            start += 1
+            
+	maxSum = max(currentMax, maxSum)
+    return maxSum
+
+l = [1,8,30,-5,20,7]
+maxSubArray(l,3)
+# 39 33 45 45
+```
+
+Alternative implementation of sliding window technique
+
+```python
+def kMaxSum(l, k):
+    current=0
+    for i in range(k):
+        current+=l[i]
+    maxSum = current
+    for i in range(k,len(l)):
+        current = current+l[i]-l[i-k]
+        maxSum = max(maxSum, current)
+    return maxSum
+```
+
+#### subarray with given sum
+
+```python
+def findSubArrayWithGivenSum(l,s):
+    current, start, end = 0, 0, 0
+    for i in range(len(l)):
+        current += l[i]
+        while current > s:
+            current -= l[start]
+            start += 1
+        if current == s:
+            end = i
+            break
+    return l[start:end+1]
+
+l = [1,4,20,3,10,5]
+s = 33
+findSubArrayWithGivenSum(l,s)
+# [20, 3, 10]
+```
+
